@@ -1,0 +1,6 @@
+-- TODO: make an animation handler module to queue animations
+-- cause the reason the apple waits to indent is cause we have
+-- the spaces taking priority
+-- Regarding the menus, I believe it also waits for the spaces
+-- to finish their animation before killing itself so even for
+-- 0 length/non animations put at the front of queue

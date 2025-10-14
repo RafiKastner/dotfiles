@@ -1,0 +1,5 @@
+# Defined via `source`
+function cd_alt --wraps=z --description 'alias cd=z'
+  z $argv
+        
+end

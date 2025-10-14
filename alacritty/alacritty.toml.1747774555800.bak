@@ -1,0 +1,21 @@
+import = [
+  "/Users/rafikastner/.nvm/versions/node/v23.11.0/lib/node_modules/alacritty-themes/themes/Euphrasia.toml"
+]
+
+[window]
+option_as_alt = "Both"
+
+  [window.padding]
+  x = 10
+  y = 10
+
+[terminal.shell]
+program = "/opt/homebrew/bin/fish"
+args = [ "--login" ]
+
+[font]
+size = 12
+
+  [font.normal]
+  family = "RobotoMono Nerd Font Mono"
+  style = "Regular"
