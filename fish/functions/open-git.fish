@@ -1,4 +1,3 @@
-#cd (tmux run "echo #(pane_start_path")a
 function open-git
     if test -z (git remote)
         echo "This repository has no remotes"
