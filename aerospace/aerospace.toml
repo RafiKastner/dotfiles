@@ -145,6 +145,7 @@ run = 'layout floating'
     alt-equal = 'resize smart +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+    alt-space = 'workspace Home'
     alt-1 = 'workspace 1'
     alt-2 = 'workspace 2'
     alt-3 = 'workspace 3'
@@ -176,6 +177,16 @@ run = 'layout floating'
     alt-c = 'exec-and-forget open -a /Applications/Google\ Chrome.app'
     alt-v = 'exec-and-forget open -a /Applications/Visual\ Studio\ Code.app'
     alt-m = 'exec-and-forget open -a /System/Applications/Messages.app'
+    alt-r = 'exec-and-forget open -a /System/Library/CoreServices/Finder.app'
+    alt-p = 'exec-and-forget open -a /System/Applications/Preview.app'
+
+    alt-shift-a = 'exec-and-forget open -n /Applications/Alacritty.app'
+    alt-shift-c = 'exec-and-forget open -n /Applications/Google\ Chrome.app'
+    alt-shift-v = 'exec-and-forget open -n /Applications/Visual\ Studio\ Code.app'
+    alt-shift-m = 'exec-and-forget open -n /System/Applications/Messages.app'
+    alt-shift-r = 'exec-and-forget open -n /System/Library/CoreServices/Finder.app'
+    alt-shift-p = 'exec-and-forget open -n /System/Applications/Preview.app'
+
 
     alt-f = 'fullscreen'
     alt-shift-f = 'layout floating tiling'
@@ -196,15 +207,15 @@ run = 'layout floating'
     # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
     #s = ['layout sticky tiling', 'mode main']
 
-    shift-h = ['swap left', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
-    shift-j = ['swap down', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
-    shift-k = ['swap up', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
-    shift-l = ['swap right', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
+    h = ['swap left', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
+    j = ['swap down', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
+    k = ['swap up', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
+    l = ['swap right', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
 
-    alt-shift-h = ['join-with left', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
-    alt-shift-j = ['join-with down', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
-    alt-shift-k = ['join-with up', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
-    alt-shift-l = ['join-with right', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
+    shift-h = ['join-with left', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
+    shift-j = ['join-with down', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
+    shift-k = ['join-with up', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
+    shift-l = ['join-with right', 'exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=main', 'mode main']
 
     down = 'volume down'
     up = 'volume up'
