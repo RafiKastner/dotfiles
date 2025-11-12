@@ -1,7 +1,7 @@
 Run with bash script (animated_fastfetch.sh)
 
-Put frames in frames/ dir
+Put frames in [frames/](frames/)
 
-Examples in examples/
+Examples in [examples/](frames/)
 
-Can use my donut animation with -e flag for export
+Can use my [donut](https://github.com/RafiKastner/spinning-donut/tree/main) animation with -e flag for export
