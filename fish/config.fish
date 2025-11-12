@@ -11,6 +11,8 @@ else
 end
 # <<< conda initialize <<<
 
+set -gx EDITOR nvim
+
 # Set up nvm
 set -x NVM_DIR $HOME/.nvm
 
@@ -25,6 +27,9 @@ end
 # Load the default Node version
 nvm use default >/dev/null
 
+# add function subdirs to fish_function_path
+set fish_function_path (path resolve $__fish_config_dir/functions/*/) $fish_function_path
+
 # Initialize commands
 starship init fish | source
 zoxide init fish | source
@@ -37,6 +42,10 @@ function ff
     aerospace list-windows --all | fzf --no-preview --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
 end
 
+alias og="open-git"
+
+alias fastfetch="bash ~/.config/fish/functions/fastfetch_animated/animated_fastfetch.sh"
+
 # Unbind default fzf keybinds for better fzf.fish interface
 bind --erase \cr
 bind --erase \ct
@@ -46,7 +55,9 @@ bind --erase \ec
 fzf_configure_bindings --directory=\cf
 
 alias spinner="run-script zsh spinner.zsh"
-alias donut="python ~/Programming/Projects/donut.py -i '38;5;24' '38;5;26' '38;5;39' -1 .7 -s .85 -a"
+alias donut="python ~/Programming/Projects/animations/donut.py -i '38;5;24' '38;5;26' '38;5;39' -1 .7 -s .85 -a"
+
+set -x TMUX_CONF ~/.config/tmux/tmux.conf
 
 # Have one always-running tmux session
 # if not set -q TMUX
@@ -69,3 +80,10 @@ end
 function show
     sketchybar --trigger show_workspace WORKSPACE_NAME=$argv[1] SHOULD_DISPLAY=$argv[2]
 end
+
+# pnpm
+set -gx PNPM_HOME /Users/rafikastner/Library/pnpm
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
