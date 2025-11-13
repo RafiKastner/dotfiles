@@ -7,9 +7,9 @@
 # pass delay as 0 to not clear upon exit
 
 delay=${1:-0.1}
-freeze=0
+no_clear=0
 if [ "$delay" -eq 0 ]; then
-  freeze=1
+  no_clear=1
   delay="0.1"
 fi
 ascii_row=3
@@ -33,7 +33,7 @@ while true; do
     read -t $delay -n 1 key && {
       tput cnorm
       echo $f_flag
-      if [[ $freeze -eq 0 ]]; then
+      if [[ $no_clear -eq 0 ]]; then
         clear
         {
           sleep .1
