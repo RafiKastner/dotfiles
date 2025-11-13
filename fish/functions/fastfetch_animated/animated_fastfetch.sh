@@ -1,9 +1,17 @@
 #!/bin/bash
 # ── animated-neofetch.sh ────────────────────────────────
-# Description: Animated ASCII frames + cached neofetch/fastfetch system info
+# Description: Animated ASCII frames + fastfetch system info
 # Usage: ./animated-neofetch.sh [delay]
+# @pewdiepie-archdaemon
+
+# pass delay as 0 to not clear upon exit
 
 delay=${1:-0.1}
+freeze=0
+if [ "$delay" -eq 0 ]; then
+  freeze=1
+  delay="0.1"
+fi
 ascii_row=3
 ascii_col=3
 text_row=2
@@ -23,13 +31,15 @@ while true; do
 
     # Wait a little, but also check if user pressed a key
     read -t $delay -n 1 key && {
-      printf '%s\n' "$key" >/dev/tty
       tput cnorm
-      clear
-      {
-        sleep .1
-        tmux send-keys -t . "$key"
-      } &
+      echo $f_flag
+      if [[ $freeze -eq 0 ]]; then
+        clear
+        {
+          sleep .1
+          tmux send-keys -t . "$key"
+        } &
+      fi
       exit
     }
   done
