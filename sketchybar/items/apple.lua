@@ -2,6 +2,7 @@ local colors = require("colors")
 local icons = require("icons")
 local settings = require("settings")
 local helpers = require("../helpers/functions/helper_funcs")
+local animation_handler = require("../helpers/handlers/animation_handler")
 
 -- Padding item required because of bracket
 sbar.add("item", { width = 5 })
@@ -14,10 +15,8 @@ local apple = sbar.add("item", "apple", {
 	label = { drawing = false },
 	background = {
 		color = colors.transparent,
-		border_color = colors.black,
-		border_width = 1,
+		corner_radius = settings.corner_radius,
 	},
-	padding_right = 1,
 })
 
 local SPACES = {

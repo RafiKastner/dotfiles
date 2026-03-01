@@ -27,11 +27,10 @@ local function createMenus(drawing)
 				},
 				drawing = drawing ~= nil and drawing or false,
 				updates = true,
-				padding_right = 6,
+				padding_right = 4,
 				--padding_left = i == 1 and 10 or 0,
 			})
 			item:subscribe("swap_menus_and_spaces", function(env)
-				--BUG that if NEW_STATR is nil it does not know what to do so it should never be
 				local _drawing = env.NEW_STATE == "menus"
 				item:set({
 					drawing = _drawing,
@@ -77,6 +76,10 @@ local function createMenus(drawing)
 			{
 				background = {
 					color = colors.bg0,
+					corner_radius = 4,
+					border_color = colors.blue,
+					border_width = 1,
+					height = settings.height / 4 * 3,
 				},
 			}
 		)
@@ -108,6 +111,10 @@ manager:subscribe("swap_menus_and_spaces", function(env)
 end)
 
 manager:subscribe("focus_changed", function()
+	if state ~= "menus" then
+		return
+	end
+	print("------FOCUS CHANGED------")
 	clearMenus()
 	local drawing = state == "menus"
 	createMenus(drawing)

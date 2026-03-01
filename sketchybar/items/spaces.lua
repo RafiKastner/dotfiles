@@ -1,6 +1,8 @@
 local colors = require("colors")
 local settings = require("settings")
 local app_icons = require("helpers.app_icons")
+local animation_handler = require("../helpers/handlers/animation_handler")
+animation_handler.test("here")
 
 local item_order = ""
 
@@ -16,7 +18,6 @@ sbar.exec("aerospace list-workspaces --monitor 1", function(spaces)
 			},
 			background = {
 				color = colors.transperent,
-				border_width = 0,
 			},
 		})
 
@@ -40,16 +41,17 @@ sbar.exec("aerospace list-workspaces --monitor 1", function(spaces)
 			padding_left = SPACE_PADDING_DEFAULT.LEFT,
 			background = {
 				color = colors.blue,
-				border_width = 0,
-				border_color = colors.white,
+				border_width = 1,
+				border_color = colors.blue,
 				drawing = false,
+				corner_radius = settings.corner_radius,
 			},
 		})
 
 		local space_bracket = sbar.add("bracket", "space_bracket." .. space_name, { space_number.name, space.name }, {
 			background = {
 				color = colors.bg0,
-				border_width = 0,
+				corner_radius = 6,
 			},
 		})
 

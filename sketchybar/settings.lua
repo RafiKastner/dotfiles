@@ -12,4 +12,5 @@ return {
 	ratios = {
 		bg = 7 / 9,
 	},
+	corner_radius = 4,
 }

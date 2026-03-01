@@ -1,3 +1,7 @@
 require("items.apple")
 require("items.spaces")
 require("items.menus")
+require("items.clock")
+require("items.battery")
+require("items.volume")
+require("items.flag")
