@@ -10,14 +10,14 @@ if true then return {} end
 -- * override the configuration of LazyVim plugins
 return {
   -- add gruvbox
-  { "ellisonleao/gruvbox.nvim" },
+  {
+    "folke/tokyonight.nvim",
+  },
 
-  -- Configure LazyVim to load gruvbox
+  -- Configure LazyVim to load tokyonight
   {
     "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox",
-    },
+    opts = { colorscheme = "tokyonight" },
   },
 
   -- change trouble config
@@ -38,6 +38,15 @@ return {
     opts = function(_, opts)
       table.insert(opts.sources, { name = "emoji" })
     end,
+  },
+
+  -- markdown viewer
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+
+    -- Completion for `blink.cmp`
+    dependencies = { "saghen/blink.cmp" },
   },
 
   -- change some telescope options and a keymap to browse plugin files
