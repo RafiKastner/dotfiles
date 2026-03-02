@@ -1,0 +1,90 @@
+
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "data",
+    "source": " ",
+    "padding": {
+      "left": 50,
+    }
+  },
+  "display": {
+    "color": {
+      "title": "38;2;137;180;250",
+      "output": "38;2;137;180;250",
+      "separator": "38;2;202;158;230"
+    },
+  },
+  "modules": [
+    "title",
+    {
+      "type": "separator",
+      "color": "38;2;202;158;230"
+    },
+    {
+      "type": "custom",
+      "key": "Self.Name",
+      "format": "Rafi Kastner"
+    },
+    {
+      "type": "custom",
+      "key": "Self.Hobbies",
+      "format": "Ricing, Game dev, Web dev"
+    },
+    {
+      "type": "custom",
+      "key": "Self.Hobbies_other",
+      "format": "Bouldering, Snowboarding, Skateboarding"
+    },
+    "break",
+    {
+      "type": "custom",
+      "key": "Skills.Languages",
+      "format": "JavaScript, Lua, Python, C"
+    },
+    {
+      "type": "custom",
+      "key": "Skills.Other",
+      "format": "React, CSS, REST APIs"
+    },
+    "break",
+    {
+      "type": "custom",
+      "key": "Setup.OS",
+      "format": "macOS Sonoma 14.1 arm64"
+    },
+    {
+      "type": "custom",
+      "key": "Setup.Editor",
+      "format": "Neovim"
+    },
+    {
+      "type": "custom",
+      "key": "Setup.Terminal",
+      "format": "Alacritty"
+    },
+    "break",
+    {
+      "type": "custom",
+      "key": "Projects.grad",
+      "format": "Scalar-valued autograd engine"
+    },
+    {
+      "type": "custom",
+      "key": "Self.Trackit",
+      "format": "Notes app and React component library"
+    },
+    {
+      "type": "custom",
+      "key": "Projects.HotbarPlus",
+      "format": "Roblox hotbar module with extensive docs"
+    },
+    {
+      "type": "custom",
+      "key": "Projects.dotfiles",
+      "format": "MacOS config",
+    },
+    "break"
+  ]
+}
+
