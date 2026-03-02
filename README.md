@@ -8,7 +8,7 @@ My macos config files
 ## [Fastfetch](fastfetch)
 ![fastfetch](https://github.com/user-attachments/assets/28bd8242-399b-4e2a-8dda-d56235ec7e8c)
 
-## [NeoVim](nvim)
+## [Neovim](nvim)
 ![](neovim.png?raw=true)
 
 ### others
