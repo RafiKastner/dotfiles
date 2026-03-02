@@ -79,11 +79,14 @@ local FONT_RESET = {
 }
 
 local popup_header = sbar.add("item", "battery.popup.header", {
-	poisition = "popup." .. battery.name,
+	position = "popup." .. battery.name,
 	topmost = true,
+	y_offset = -6,
 	icon = {
 		string = "Battery",
-		font = FONT_RESET,
+		font = helpers.TableConcat(FONT_RESET, {
+			style = "Bold",
+		}),
 	},
 })
 
