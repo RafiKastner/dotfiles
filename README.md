@@ -6,7 +6,7 @@ My macos config files
 ![](Sketchybar.gif?raw=true)
 
 ## [Fastfetch](fastfetch)
-![](fastfetch.png?raw=true)
+![fastfetch](https://github.com/user-attachments/assets/28bd8242-399b-4e2a-8dda-d56235ec7e8c)
 
 ## [NeoVim](nvim)
 ![](neovim.png?raw=true)
