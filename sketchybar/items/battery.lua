@@ -22,7 +22,13 @@ local battery = sbar.add("item", "battery", {
 	icon = helpers.TableConcat({ padding_right = 1 }, STYLE), --percent filled
 	label = helpers.TableConcat({ padding_left = 0 }, STYLE), --unfilled
 	update_freq = 120,
-	popup = { align = "center" },
+	popup = {
+		align = "center",
+		background = {
+			corner_radius = settings.corner_radius,
+			color = colors.bg0,
+		},
+	},
 })
 
 local bracket = sbar.add("bracket", "battery_bracket", { "battery", "battery_percent" }, {
@@ -44,6 +50,7 @@ percent:subscribe({ "routine", "power_source_change", "system_woke" }, function(
 			charge = 0
 		end
 
+		local charging_symbol = info:find("AC Power") and "󱐋" or ""
 		local fill = math.floor(charge / (100 / MAX_LENGTH))
 
 		battery:set({
@@ -52,13 +59,57 @@ percent:subscribe({ "routine", "power_source_change", "system_woke" }, function(
 				color = charge < 20 and colors.red or colors.green,
 			},
 			label = {
-				string = string.rep("|", MAX_LENGTH - fill) .. "]",
+				string = string.rep("|", MAX_LENGTH - fill - 1) .. "]",
+				color = charge > 100 - (100 / MAX_LENGTH) and colors.green or colors.white,
 			},
 		})
 		percent:set({
 			icon = {
-				string = (charge < 10 and "0" or "") .. tostring(charge) .. "%",
+				string = charging_symbol .. (charge < 10 and "0" or "") .. tostring(charge) .. "%",
 				color = charge < 10 and colors.red or colors.white,
+			},
+		})
+	end)
+end)
+
+local FONT_RESET = {
+	family = settings.font_system,
+	size = settings.sizes.icon - 2,
+	style = "Normal",
+}
+
+local popup_header = sbar.add("item", "battery.popup.header", {
+	poisition = "popup." .. battery.name,
+	topmost = true,
+	icon = {
+		string = "Battery",
+		font = FONT_RESET,
+	},
+})
+
+local popup_info = sbar.add("item", "battery.popup.info", {
+	position = "popup." .. battery.name,
+	icon = {
+		font = FONT_RESET,
+	},
+})
+
+battery:subscribe("mouse.clicked", function()
+	sbar.exec("pmset -g batt", function(info)
+		local charging = info:find("AC Power") or false
+		local remaining = info:match("%d:%d%d remaining") or "(no estimate)"
+		if charging then
+			remaining = remaining .. " until full charge"
+		end
+
+		battery:set({
+			popup = {
+				drawing = "toggle",
+			},
+		})
+		popup_info:set({
+			icon = {
+				string = tostring(remaining),
 			},
 		})
 	end)
