@@ -41,7 +41,7 @@ local bracket = sbar.add("bracket", "battery_bracket", { "battery", "battery_per
 })
 
 MAX_LENGTH = 25
-percent:subscribe({ "routine", "power_source_change", "system_woke" }, function()
+battery:subscribe({ "routine", "power_source_change", "system_woke" }, function()
 	sbar.exec("pmset -g batt", function(info)
 		local found, _, charge = info:find("(%d+)%%")
 		if found then
