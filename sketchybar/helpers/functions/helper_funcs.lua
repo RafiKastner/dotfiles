@@ -1,10 +1,11 @@
 local helpers = {}
 
-function helpers.TableConcat(t1, t2)
+function helpers.TableConcat(t1, t2, inplace)
+	local ret = not inplace and helpers.shallow_copy(t1) or t1
 	for i, v in pairs(t2) do
-		t1[i] = v
+		ret[i] = v
 	end
-	return t1
+	return ret
 end
 
 function helpers.PrintTable(t)
