@@ -21,7 +21,7 @@ local battery = sbar.add("item", "battery", {
 	y_offset = -1,
 	icon = helpers.TableConcat({ padding_right = 1 }, STYLE), --percent filled
 	label = helpers.TableConcat({ padding_left = 0 }, STYLE), --unfilled
-	update_freq = 120,
+	update_freq = 60,
 	popup = {
 		align = "center",
 		background = {
@@ -100,7 +100,7 @@ local popup_info = sbar.add("item", "battery.popup.info", {
 battery:subscribe("mouse.clicked", function()
 	sbar.exec("pmset -g batt", function(info)
 		local charging = info:find("AC Power") or false
-		local remaining = info:match("%d:%d%d remaining") or "(no estimate)"
+		local remaining = info:match("%d*:%d%d remaining") or "(no estimate)"
 		if charging then
 			remaining = remaining .. " until full charge"
 		end
