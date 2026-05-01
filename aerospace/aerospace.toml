@@ -180,7 +180,7 @@ run = 'layout floating'
     alt-r = 'exec-and-forget open -a /System/Library/CoreServices/Finder.app'
     alt-p = 'exec-and-forget open -a /System/Applications/Preview.app'
 
-    alt-shift-a = 'exec-and-forget open -n /Applications/Alacritty.app'
+    alt-shift-a = 'exec-and-forget alacritty msg create-window'
     alt-shift-c = 'exec-and-forget open -n /Applications/Google\ Chrome.app'
     alt-shift-v = 'exec-and-forget open -n /Applications/Visual\ Studio\ Code.app'
     alt-shift-m = 'exec-and-forget open -n /System/Applications/Messages.app'
@@ -189,7 +189,7 @@ run = 'layout floating'
 
 
     alt-f = 'fullscreen'
-    alt-shift-f = 'layout floating tiling'
+    alt-shift-f = ['layout floating tiling', 'exec-and-forget sketchybar --trigger aerospace_floating']
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-q = ['exec-and-forget sketchybar --trigger aerospace_mode_change NEW_MODE=service', 'mode service']
