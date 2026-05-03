@@ -3,29 +3,29 @@ local icons = require("../icons")
 local floaters = {}
 
 sbar.exec("echo", function(_) --to make it appear after menus & spaces
-	local fullscreen = sbar.add("item", "fullscreen", {
-		icon = " ",
+	local floating = sbar.add("item", "floating", {
+		position = "right",
 		updates = true,
 	})
 
-	fullscreen:subscribe("aerospace_floating", function()
+	floating:subscribe("aerospace_floating", function()
 		sbar.exec("aerospace list-windows --format %{app-name} --focused", function(text)
 			if floaters[text] == nil then
 				floaters[text] = false
 			end
 			floaters[text] = not floaters[text]
-			fullscreen:set({
+			floating:set({
 				icon = floaters[text] and icons.life_preserve or "",
 			})
 		end)
 	end)
 
-	fullscreen:subscribe("focus_changed", function()
+	floating:subscribe("focus_changed", function()
 		sbar.exec("aerospace list-windows --format %{app-name} --focused", function(text)
 			if floaters[text] == nil then
 				floaters[text] = false
 			end
-			fullscreen:set({
+			floating:set({
 				icon = floaters[text] and icons.life_preserve or "",
 			})
 		end)
